@@ -68,12 +68,15 @@ flowchart TD
 ## 3.领取美团优惠券
 <img width="1193" height="581" alt="image" src="https://github.com/user-attachments/assets/93633493-1ca6-42c3-a97b-32077921edf3" />
 
-点击左侧“专家·技能·连接器”
+1.点击左侧“专家·技能·连接器”
 
 <img width="917" height="339" alt="image" src="https://github.com/user-attachments/assets/a4aa0032-94a8-4c2d-9094-aceddd98a819" />
 
-搜索“美团”，点击第一个“美团生活助手”，“召唤”，运行”帮我领美团优惠券活动“
-若现在是晚上11：00-早上8:00，建议使用hy4preview，不扣积分，其他时间段建议使用hy3，不在意积分者随意）
+2.搜索“美团”
+2.点击第一个“美团生活助手”
+3.“召唤”
+4.运行”帮我领美团优惠券活动“
+（若现在是晚上11：00-早上8:00，建议使用hy4preview，不扣积分，其他时间段建议使用hy3，不在意积分者随意）
 
 ```mermaid
 flowchart TD
@@ -93,17 +96,20 @@ flowchart TD
 ## 4.设定每日自动领取美团红包自动化
 <img width="1193" height="581" alt="image" src="https://github.com/user-attachments/assets/93633493-1ca6-42c3-a97b-32077921edf3" />
 
-点击“定时任务”-“添加定时任务”
+1.点击“定时任务”
+2.“添加定时任务”
 
 <img width="777" height="515" alt="image" src="https://github.com/user-attachments/assets/7535a958-bb0f-4d5d-8afd-a1b0f5fcce7d" />
 
-名称可以设置为美团，或任意其他，不影响任务进行
-
-提示词不能随便写，可以写“帮我领美团优惠券活动”，点击提示词下方+号，点击“专家”，选择“美团生活助手”
+3.名称可以设置为美团，或任意其他，不影响任务进行
+4.提示词不能随便写，可以写“帮我领美团优惠券活动”
+5.点击提示词下方+号
+6.点击“专家”
+7.选择“美团生活助手”
 
 <img width="195" height="156" alt="image" src="https://github.com/user-attachments/assets/6a455594-781e-4de1-8124-4c10d79c754f" />
 
-设置执行频率，建议每天执行，时间根据个人习惯设定
+8.设置执行频率，建议每天执行，时间根据个人习惯设定
 （建议晚上11：00-早上8:00运行，可以免费使用hy4preview）
 
 ```mermaid
