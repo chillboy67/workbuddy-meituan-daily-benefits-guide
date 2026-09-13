@@ -19,9 +19,19 @@ https://www.workbuddy.cn/events/campus-freshman/
 
 ### 路径二 
 微信与学信网/支付宝联合认证（适用于首次或重新认证）
+
+1. 进入微信学生认证页面，按要求填写本人基本学生信息。
+2. 页面自动跳转进入**中国高等教育学生信息网（学信网）**。
+3. 登录后进入 **「学信档案」** 板块，点击 **「在线验证报告」**。
+
 <img width="720" height="720" alt="2a92b97f71074ae6c813910408cdc4f3" src="https://github.com/user-attachments/assets/9c10b4b6-3930-4067-90d5-8365dd5eebe4" />
 
+4. 找到 **「教育部学籍在线验证报告」**，点击右侧的 **「查看」**。
+
 <img width="1030" height="180" alt="fff076bb6ddf2763156424fbd0745373" src="https://github.com/user-attachments/assets/3effb07f-3fb8-457d-b28e-427a5046c2d2" />
+
+5. 选择对应在读的高校信息，再次点击 **「查看」**。
+6. 系统完成信息校验与授权，返回微信即完成基础学生认证。
 
 <img width="792" height="180" alt="9b1be83aa03ad75de643b1b37c47b80d" src="https://github.com/user-attachments/assets/e6438867-e4df-4c76-bca0-de12ce351664" />
 
@@ -65,6 +75,21 @@ flowchart TD
 搜索“美团”，点击第一个“美团生活助手”，“召唤”，运行”帮我领美团优惠券活动“
 若现在是晚上11：00-早上8:00，建议使用hy4preview，不扣积分，其他时间段建议使用hy3，不在意积分者随意）
 
+```mermaid
+flowchart TD
+    Step1[点击左侧“专家·技能·连接器”] --> Step2[搜索“美团”]
+    Step2 --> Step3[点击第一个“美团生活助手”]
+    Step3 --> Step4[点击“召唤”]
+    Step4 --> Step5{时间与模型建议}
+    Step5 -- 晚上11:00-早上8:00 --> M1[建议使用hy4preview，不扣积分]
+    Step5 -- 其他时间段 --> M2[建议使用hy3]
+    Step5 -- 不在意积分者 --> M3[随意]
+    M1 --> Step6[运行“帮我领美团优惠券活动”]
+    M2 --> Step6
+    M3 --> Step6
+    Step6 --> End1([完成领取])
+```
+
 ## 4.设定每日自动领取美团红包自动化
 <img width="1193" height="581" alt="image" src="https://github.com/user-attachments/assets/93633493-1ca6-42c3-a97b-32077921edf3" />
 
@@ -80,6 +105,17 @@ flowchart TD
 
 设置执行频率，建议每天执行，时间根据个人习惯设定
 （建议晚上11：00-早上8:00运行，可以免费使用hy4preview）
+
+```mermaid
+flowchart TD
+    Step1[点击“定时任务”-“添加定时任务”] --> Step2[设置名称：可以设置为美团，或任意其他，不影响任务进行]
+    Step2 --> Step3[填写提示词：不能随便写，可以写“帮我领美团优惠券活动”]
+    Step3 --> Step4[点击提示词下方+号]
+    Step4 --> Step5[点击“专家”]
+    Step5 --> Step6[选择“美团生活助手”]
+    Step6 --> Step7[设置执行频率，建议每天执行，时间根据个人习惯设定<br/>（建议晚上11:00-早上8:00运行，可以免费使用hy4preview）]
+    Step7 --> End2([完成设定])
+```
 
 ## 5.每日领取100积分自动化
 在直接在输入框输入“帮我去github寻找能够让workbuddy每天自动化签到的项目，并设置定时任务，自动执行”或类似提示词
