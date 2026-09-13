@@ -1,2 +1,4 @@
 # workbuddy-meituan-daily-benefits-guide
-workbuddy每日领取美团红包指南（附加学生认证指南）
+
+## 1.workbuddy注册
+https://www.workbuddy.cn/events/invite?inviteCode=s4ey43des
