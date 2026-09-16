@@ -1,5 +1,7 @@
 # workbuddy-meituan-daily-benefits-guide
 
+[English](README.en.md) | 中文
+
 ## 1.workbuddy注册
 https://www.workbuddy.cn/events/invite?inviteCode=s4ey43des
 
