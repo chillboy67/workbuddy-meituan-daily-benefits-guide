@@ -161,5 +161,5 @@ flowchart TD
     Step1[在 Codex 粘贴移植提示词] --> Step2[挑选「美团生活助手」并安装]
     Step2 --> Step3[把凭证复制到 ~/.codex/credentials/meituan-living-deals-assistant/]
     Step3 --> Step4[在 Codex 登录并领券]
-    Step4 --> End3([完成：可脱离WorkBuddy运行])
+    Step4 --> End3([可脱离WorkBuddy运行])
 ```
