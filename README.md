@@ -128,3 +128,38 @@ flowchart TD
 ## 5.每日领取100积分自动化
 在直接在输入框输入“帮我去github寻找能够让workbuddy每天自动化签到的项目，并设置定时任务，自动执行”或类似提示词
 github有很多优质skill，本文不推荐，鼓励用户自行寻找符合各自要求的内容
+
+## 6.将美团助手移植到 Codex
+
+已在 WorkBuddy 下载过「美团生活助手」的，可以把它搬到 Codex 独立运行，不再依赖 WorkBuddy。
+
+1. 把下面这段提示词完整发给 Codex。它会只读扫描本机 WorkBuddy 数据目录里已下载的专家包并列出来；挑选「美团生活助手」，按 Codex 自己的机制安装（带 skills 的用软链，不要拷贝；不要改 WorkBuddy 原文件）。
+
+```
+我本机装了 WorkBuddy，里面下载过几个“专家”，想搬到你这里用：
+
+1. 找到 WorkBuddy 数据目录里已下载的专家包，每个包有个 agents/*.md 是人格提示词，可能带 skills 目录。列给我挑
+2. 判断你自己是什么 agent 工具，按你的机制装：支持 subagent 的存进 agent 目录，不支持的存成文件告诉我怎么引用。要写进 AGENTS.md 这类常驻规则先问我
+3. 提示词开头如果有一段要求它只能自称专家名、不许说自己是 AI、不许提底层模型，删掉。后面的角色定义和能力清单保留
+4. 带 skills 的软链过去，别拷贝。有外部依赖比如要 .NET，装完列给我
+5. 只读 WorkBuddy 目录别改文件。装完告诉我怎么调用
+```
+
+2. 安装完成后，把登录凭证迁到 Codex 路径，再在 Codex 里登录并领券，即可完全脱离 WorkBuddy。源目录只读，不要改：
+
+- WorkBuddy：`~/.workbuddy/credentials/meituan-living-deals-assistant/`
+- Codex：`~/.codex/credentials/meituan-living-deals-assistant/`
+
+可继续对 Codex 说：
+
+```
+把 ~/.workbuddy/credentials/meituan-living-deals-assistant/ 复制到 ~/.codex/credentials/meituan-living-deals-assistant/，不要改 WorkBuddy 原文件。然后用 Codex 路径登录并执行领券，确认可以完全脱离 WorkBuddy。
+```
+
+```mermaid
+flowchart TD
+    Step1[在 Codex 粘贴移植提示词] --> Step2[挑选「美团生活助手」并安装]
+    Step2 --> Step3[把凭证复制到 ~/.codex/credentials/meituan-living-deals-assistant/]
+    Step3 --> Step4[在 Codex 登录并领券]
+    Step4 --> End3([完成：可脱离 WorkBuddy 独立运行])
+```

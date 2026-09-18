@@ -140,3 +140,38 @@ flowchart TD
 Just type into the input box: "Help me find on GitHub a project that lets WorkBuddy auto check-in every day, and set up a scheduled task to run it automatically" — or a similar prompt.
 
 GitHub has many quality skills; this doc does not recommend specific ones and encourages you to find what fits your own needs.
+
+## 6. Port the Meituan assistant to Codex
+
+If you already downloaded **Meituan Life Assistant** (美团生活助手) in WorkBuddy, you can move it to Codex and run it there independently — no WorkBuddy required afterwards.
+
+1. Paste the prompt below into Codex as-is. Codex will **read-only** scan WorkBuddy's data directory for downloaded expert packs and list them. Pick **Meituan Life Assistant**. Codex should install it using its own mechanism (symlink skills instead of copying; do not modify WorkBuddy files).
+
+```
+I have WorkBuddy installed locally and have already downloaded several "experts". I want to move them here:
+
+1. Find the downloaded expert packs in the WorkBuddy data directory. Each pack has an agents/*.md persona prompt, and may include a skills directory. List them so I can pick.
+2. Figure out what kind of agent tool you are, and install accordingly: if you support subagents, put it in the agent directory; if not, save it as a file and tell me how to invoke it. If it needs to be written into standing rules like AGENTS.md, ask me first.
+3. If the prompt starts with a block that requires it to only call itself the expert name, never say it is an AI, and never mention the underlying model, delete that block. Keep the role definition and capability list after it.
+4. Symlink any skills; do not copy. If there are external dependencies (for example .NET), list them after install.
+5. Read-only on the WorkBuddy directory — do not modify its files. After install, tell me how to invoke it.
+```
+
+2. After install, move the login credentials to the Codex path, then sign in and claim coupons in Codex. Leave the WorkBuddy source directory unchanged:
+
+- WorkBuddy: `~/.workbuddy/credentials/meituan-living-deals-assistant/`
+- Codex: `~/.codex/credentials/meituan-living-deals-assistant/`
+
+You can follow up in Codex with:
+
+```
+Copy ~/.workbuddy/credentials/meituan-living-deals-assistant/ to ~/.codex/credentials/meituan-living-deals-assistant/. Do not modify the original WorkBuddy files. Then sign in and claim coupons using the Codex path, and confirm it can run fully independently of WorkBuddy.
+```
+
+```mermaid
+flowchart TD
+    Step1[Paste the porting prompt into Codex] --> Step2[Pick 'Meituan Life Assistant' and install]
+    Step2 --> Step3[Copy credentials to ~/.codex/credentials/meituan-living-deals-assistant/]
+    Step3 --> Step4[Sign in and claim coupons in Codex]
+    Step4 --> End3([Done: runs independently of WorkBuddy])
+```
