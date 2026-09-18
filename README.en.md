@@ -173,5 +173,5 @@ flowchart TD
     Step1[Paste the porting prompt into Codex] --> Step2[Pick 'Meituan Life Assistant' and install]
     Step2 --> Step3[Copy credentials to ~/.codex/credentials/meituan-living-deals-assistant/]
     Step3 --> Step4[Sign in and claim coupons in Codex]
-    Step4 --> End3([Done: runs independently of WorkBuddy])
+    Step4 --> End3([Done: runs independently])
 ```
