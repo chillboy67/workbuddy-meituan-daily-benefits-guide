@@ -131,7 +131,16 @@ github有很多优质skill，本文不推荐，鼓励用户自行寻找符合各
 
 ## 6.将美团助手移植到 Codex
 
-已在 WorkBuddy 下载过「美团生活助手」的，可以把它搬到 Codex 独立运行，不再依赖 WorkBuddy。
+已在 WorkBuddy 下载过「美团生活助手」的，可以将它接入 Codex。采用软链接后，运行时仍需保留 WorkBuddy 中被链接的技能文件。
+
+本仓库还提供 [workbuddy迁移助手](skills/workbuddy-migration-assistant/SKILL.md) skill，可复用同一套盘点和迁移流程。先克隆本仓库，再在仓库目录运行：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/workbuddy-migration-assistant ~/.codex/skills/
+```
+
+如果目标目录已存在，请先比较内容，避免覆盖已有版本。重新开启 Codex 会话后，输入：`用 $workbuddy-migration-assistant 盘点 WorkBuddy 专家`。也可以继续使用下面的提示词，无需安装此 skill。
 
 1. 把下面这段提示词完整发给 Codex。它会只读扫描本机 WorkBuddy 数据目录里已下载的专家包并列出来；挑选「美团生活助手」，按 Codex 自己的机制安装（带 skills 的用软链，不要拷贝；不要改 WorkBuddy 原文件）。
 
@@ -145,7 +154,7 @@ github有很多优质skill，本文不推荐，鼓励用户自行寻找符合各
 5. 只读 WorkBuddy 目录别改文件。装完告诉我怎么调用
 ```
 
-2. 安装完成后，把登录凭证迁到 Codex 路径，再在 Codex 里登录并领券，即可完全脱离 WorkBuddy。源目录只读，不要改：
+2. 安装完成后，把登录凭证迁到 Codex 路径，再在 Codex 里登录并领券。软链接所指向的 WorkBuddy 技能文件仍需保留。源目录只读，不要改：
 
 - WorkBuddy：`~/.workbuddy/credentials/meituan-living-deals-assistant/`
 - Codex：`~/.codex/credentials/meituan-living-deals-assistant/`
@@ -153,7 +162,7 @@ github有很多优质skill，本文不推荐，鼓励用户自行寻找符合各
 可继续对 Codex 说：
 
 ```
-把 ~/.workbuddy/credentials/meituan-living-deals-assistant/ 复制到 ~/.codex/credentials/meituan-living-deals-assistant/，不要改 WorkBuddy 原文件。然后用 Codex 路径登录并执行领券，确认可以完全脱离 WorkBuddy。
+把 ~/.workbuddy/credentials/meituan-living-deals-assistant/ 复制到 ~/.codex/credentials/meituan-living-deals-assistant/，不要改 WorkBuddy 原文件。然后用 Codex 路径登录并执行领券，验证实际运行情况。
 ```
 
 ```mermaid
@@ -161,5 +170,5 @@ flowchart TD
     Step1[在 Codex 粘贴移植提示词] --> Step2[挑选「美团生活助手」并安装]
     Step2 --> Step3[把凭证复制到 ~/.codex/credentials/meituan-living-deals-assistant/]
     Step3 --> Step4[在 Codex 登录并领券]
-    Step4 --> End3([可脱离WorkBuddy运行])
+    Step4 --> End3([在 Codex 验证运行])
 ```

@@ -143,7 +143,16 @@ GitHub has many quality skills; this doc does not recommend specific ones and en
 
 ## 6. Port the Meituan assistant to Codex
 
-If you already downloaded **Meituan Life Assistant** (美团生活助手) in WorkBuddy, you can move it to Codex and run it there independently — no WorkBuddy required afterwards.
+If you already downloaded **Meituan Life Assistant** (美团生活助手) in WorkBuddy, you can use it from Codex. Symlinked skills still require their WorkBuddy source files to remain in place.
+
+This repository also provides the [WorkBuddy migration assistant](skills/workbuddy-migration-assistant/SKILL.md) skill for the same inventory and migration workflow. Clone this repository, then run from its root:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/workbuddy-migration-assistant ~/.codex/skills/
+```
+
+If the destination already exists, compare it first to avoid overwriting an existing version. Start a new Codex session and say: `Use $workbuddy-migration-assistant to list my downloaded WorkBuddy experts.` You can also use the prompt below without installing the skill.
 
 1. Paste the prompt below into Codex as-is. Codex will **read-only** scan WorkBuddy's data directory for downloaded expert packs and list them. Pick **Meituan Life Assistant**. Codex should install it using its own mechanism (symlink skills instead of copying; do not modify WorkBuddy files).
 
@@ -165,7 +174,7 @@ I have WorkBuddy installed locally and have already downloaded several "experts"
 You can follow up in Codex with:
 
 ```
-Copy ~/.workbuddy/credentials/meituan-living-deals-assistant/ to ~/.codex/credentials/meituan-living-deals-assistant/. Do not modify the original WorkBuddy files. Then sign in and claim coupons using the Codex path, and confirm it can run fully independently of WorkBuddy.
+Copy ~/.workbuddy/credentials/meituan-living-deals-assistant/ to ~/.codex/credentials/meituan-living-deals-assistant/. Do not modify the original WorkBuddy files. Then sign in and claim coupons using the Codex path, and verify the actual behavior.
 ```
 
 ```mermaid
@@ -173,5 +182,5 @@ flowchart TD
     Step1[Paste the porting prompt into Codex] --> Step2[Pick 'Meituan Life Assistant' and install]
     Step2 --> Step3[Copy credentials to ~/.codex/credentials/meituan-living-deals-assistant/]
     Step3 --> Step4[Sign in and claim coupons in Codex]
-    Step4 --> End3([Done: runs independently])
+    Step4 --> End3([Verify operation in Codex])
 ```
